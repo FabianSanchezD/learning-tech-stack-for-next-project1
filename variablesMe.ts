@@ -7,5 +7,13 @@ let userId = 334466;
 
 let isLoggedIn = false;
 
+let hero: string;
+
+function getHero() {
+    return 'thor'
+}
+
+hero = getHero()
+
 
 export {}
