@@ -1,49 +1,34 @@
-// class User {
-//     public email: string
-//     name:string
-//     private readonly city: string = 'Cartago'
-//     constructor(email:string, name : string) {
-//         this.email = email;
-//         this.name = name;
-//     }
-// }
+interface TakePhoto {
+    cameraMode: string
+    filter: string
+    burst: number
+}
 
-class User {
+interface Story {
+    createStory(): boolean
+}
 
-    protected _courseCount = 1;
+class Instagram implements TakePhoto {
+    constructor (
+        public cameraMode: string,
+        public filter: string,
+        public burst: number
+    ) {
 
-    readonly city: string = 'Cartago'
-    constructor(public email:string, 
-        public name:string,
-        private userId:string
-    ) 
-        {}
-
-    get getAppleEmail():string{
-        return `apple${this.email}`
-    }
-
-    private deleteToken(){
-        console.log('delete token')
-    }
-
-    get courseCount(): number{ //get propertly
-        return this._courseCount
-    }
-
-    set courseCount(courseNum) { // set property
-        if (courseNum <= 1) {
-            throw new Error('should be more than one')
-        }
-        this._courseCount = courseNum
     }
 }
 
-class SubUser extends User {
-    isFam: boolean = true
-    changeCourseCount(){
-        this._courseCount = 4;
+class Youtube implements TakePhoto, Story{
+    constructor (
+        public cameraMode: string,
+        public filter: string,
+        public burst: number,
+        public short: string
+    ) {
+
+    }
+
+    createStory(): boolean {
+        return true
     }
 }
-
-const fabian = new User("f@gmail.com", "fabian", '123gdfsdf')
