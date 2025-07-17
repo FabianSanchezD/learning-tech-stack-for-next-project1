@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Path, Query
+from fastapi import FastAPI, Path, Query, HTTPException, status
 from typing import Optional
 from pydantic import BaseModel
 
@@ -27,7 +27,7 @@ def get_item(*, item_id: int, test:int , name: Optional[str] = None):
         if inventory[item_id].name == name:
             return inventory[item_id]
         
-    return {"Data not found"}
+    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Item name not found')
 
 @app.post('/create-item/{item_id}')
 def create_item(item_id: int, item: Item):
