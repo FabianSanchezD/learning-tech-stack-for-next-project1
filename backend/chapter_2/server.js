@@ -27,7 +27,7 @@ app.use(express.json())
 
 app.get('/api/data', (req, res) => {
     console.log('this is for data')
-    res.send(data)
+    res.status(100).send(data)
 })
 
 app.post('/api/data', (req, res) => {
