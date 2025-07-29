@@ -1,0 +1,18 @@
+### TEST GET / WEBSITE
+
+GET http://localhost:1212
+
+### TEST GET /api/data 
+GET http://localhost:1212/api/data
+
+
+### TEST POST FOR ADDING USER
+POST http://localhost:1212/api/data
+Content-Type: application/json
+ 
+{
+    "name": "Pedro"
+}
+
+### TEST POST FOR deletigng USER
+DELETE http://localhost:1212/api/data
