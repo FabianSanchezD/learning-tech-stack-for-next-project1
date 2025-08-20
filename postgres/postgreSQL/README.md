@@ -1,0 +1,1 @@
+Used DataGrip to test creating tables, adding users, deleting, updating, selecting. CRUD.
